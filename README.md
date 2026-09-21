@@ -12,10 +12,10 @@ Elektrodenvektor x(t) zu fast jedem Zeitpunkt in die Richtung der Mischspalte **
 ```
 ica-demo → sobi-demo
          → sca-demo           (Sparsität statt Unabhängigkeit: mehr Quellen als Sensoren)
-         → NMF                (Nichtnegativität statt Unabhängigkeit)
+         → NMF                (Nichtnegativität statt Unabhängigkeit: nmf-demo)
          → Spike-Sorting-Zweig (Standard-Pipeline, Vorlagenabgleich, Verzögerungsgraph: spike-sorting-demo, template-matching-demo, delay-graph-demo)
 ```
-Gebaut ist inzwischen der Spike-Sorting-Zweig; NMF fehlt noch. Die Demo selbst markiert nur, welche Annahme die Nachfolger jeweils lockern.
+Gebaut sind inzwischen NMF und der Spike-Sorting-Zweig – die Linie ist vollständig. Die Demo selbst markiert nur, welche Annahme die Nachfolger jeweils lockern.
 
 | Frage | Ergebnis (Neuronen-Korrelation, 4 Neuronen, Rauschen 0.05, 20000 Abtastwerte; Mittel über 5 feste Datensätze, Seeds 100000–100004) |
 |---|---|
