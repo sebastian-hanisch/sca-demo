@@ -24,6 +24,7 @@ from sca_presets import (
     init_session_state_defaults,
     load_permalink_settings,
     randomize_seed,
+    seed_widget,
     sync_query_params,
 )
 from sca_visualization import (
@@ -144,6 +145,7 @@ with st.sidebar:
         help="Eine zusätzliche flächige Quelle, die dauernd auf alle Elektroden wirkt - **nicht** sparse. Ein Gauß-Hintergrund senkt die Korrelation bei 3 Elektroden von 0.98 auf 0.96, ein Rhythmus auf 0.90.",
     )
     if n_background > 0:
+        seed_widget("kind_select")
         kind = st.selectbox(
             "Art des Hintergrunds", C.BACKGROUND_KINDS, key="kind_select", format_func=lambda k: C.BACKGROUND_LABELS[k],
             help="Gauß-Rauschen (AR(1), Koeffizient 0.95) oder ein 10-Hz-Sinusrhythmus.",
