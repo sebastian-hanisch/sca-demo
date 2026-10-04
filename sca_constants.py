@@ -82,9 +82,9 @@ PRESET_HELP = {
     "Genug Elektroden": "Sechs Elektroden für vier Neuronen: die ICA reicht (0.981), SOBI ebenso (0.978). SCA ist trotzdem gleichauf oder besser (0.995), weil es das Rauschen an ruhigen Zeitpunkten weglässt - "
                         "es wird hier aber nicht gebraucht.",
     "Hohe Feuerrate": "Vierfache Feuerrate: an gut jedem vierten aktiven Zeitpunkt sind zwei Neuronen gleichzeitig aktiv, die Annahme 'höchstens eine aktive Quelle' wird brüchig. Die Richtungen bleiben gut gefunden (Fehler 2 Grad), "
-                      "aber die Rekonstruktion leidet: Korrelation 0.83 statt 0.97 bei einem Viertel der Feuerrate. ICA und SOBI bleiben bei 0.41 - es ist weiter die falsche Elektrodenzahl.",
+                      "aber die Rekonstruktion leidet: Korrelation 0.83 statt 0.97 bei einem Viertel der Feuerrate. ICA (0.41) und SOBI (0.38) bleiben tief - es ist weiter die falsche Elektrodenzahl.",
     "Neuronen dicht beieinander": "Alle vier Neuronen liegen nahe der Mitte der Zeile: ihre Mischrichtungen unterscheiden sich um wenige Grad. Die Richtungen findet SCA trotzdem (Fehler unter 0.2 Grad), aber die L1-Rekonstruktion verteilt "
-                                  "Energie auf fast parallele Spalten: 0.79. Die Einzelquellen-Zuordnung ist hier besser (0.92).",
+                                  "Energie auf fast parallele Spalten: 0.79. Die Einzelquellen-Zuordnung ist hier besser (0.91).",
     "Dichter Rhythmus-Hintergrund": "Ein Sinusrhythmus wirkt dauernd auf alle Elektroden - er ist nicht sparse. Die Richtungen der Neuronen werden ungenauer (Fehler 3-5 Grad), die Korrelation fällt von 0.98 auf 0.90; "
                                     "ICA (0.60) und SOBI (0.37) bleiben bei drei Elektroden für fünf Quellen weit zurück.",
     "Starkes Rauschen": "Rauschen von 100 % des Neuronen-Signals bei drei Elektroden für vier Neuronen: die Richtungen sind noch auf 2-3 Grad genau, die Rekonstruktion leidet (0.74 statt 0.99 ohne Rauschen). ICA 0.38, SOBI 0.35.",
