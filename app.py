@@ -423,7 +423,7 @@ with st.expander("📐 Mathematische Formulierung"):
     st.markdown(
         r"""
 **Modell.** $x(t) = A\,s(t) + \varepsilon(t)$, $x \in \mathbb{R}^n$, $s \in \mathbb{R}^k$, $A \in \mathbb{R}^{n \times k}$, $k \ge n$ erlaubt. **Sparsität in der Zeit:** für die meisten $t$ hat $s(t)$ höchstens eine von null verschiedene Komponente
-(allgemein höchstens $n - 1$; dann ist die Zerlegung eindeutig, wenn je $n$ Spalten von $A$ linear unabhängig sind).
+(allgemein höchstens $n - 1$). Nach Georgiev, Theis & Cichocki (2005) sind $A$ und $s(t)$ dann aus genügend vielen, hinreichend verschiedenen Zeitpunkten eindeutig bestimmbar, wenn je $n$ Spalten von $A$ linear unabhängig sind; das ist eine Aussage über den ganzen Datensatz, nicht über einen einzelnen Zeitpunkt bei festem $A$.
 Identifizierbar nur bis auf Reihenfolge, Vorzeichen und Skala der Spalten (Georgiev et al.; Bofill & Zibulevsky für den Clustering-Ansatz).
 
 **Aktive Zeitpunkte.** $r(t) = \lVert x(t) - \tilde m \rVert$ mit dem Median $\tilde m$ je Elektrode; aktiv, wenn $r(t) > \max(4\,q_{0.2},\ 0.1\,q_{0.995})$ ($q_p$ = $p$-Quantil von $r$).
