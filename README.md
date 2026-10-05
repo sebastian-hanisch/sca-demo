@@ -77,6 +77,7 @@ Regler: Neuronen (2–5), Elektroden (1–8), Feuerrate (×0.25–×4), Neuronen
 - **Auf einen Hintergrund begrenzt** (0 oder 1, dauerhaft aktiv). **Laufzeitverzögerung entfällt** (Annahme der momentanen Mischung; siehe ica-demo). Die **Quellenzahl wird als bekannt angenommen** (zu wenige Cluster verschmelzen Neuronen, zu viele teilen sie).
 - **Synthetische Daten:** feste Spitzenform je Neuron, exakt lineare Mischung, weißes Gauß'sches Rauschen, Elektroden auf einer Zeile; Neuronenspalten sind positiv (alle Achsen im ersten Orthanten), deshalb ist das Zufallsniveau des Winkelfehlers vergleichsweise klein.
 - **SCA nutzt die zeitliche Struktur nicht:** jeder Zeitpunkt wird unabhängig zerlegt.
+- **Die Spitzenerkennung des Spitzen-F1 (Kopie aus ica-demo) wandte die Mindesttiefe erst ab 10 gefundenen Spitzen an:** bei kürzeren Spuren blieben Rauschspitzen über 4 σ_MAD als Falschtreffer stehen, obwohl dieselbe Spur mit mehr Spitzen sie verworfen hätte. Jetzt gilt die Regel (30 % der typischen Tiefe, typische Tiefe = Median der höchstens 10 tiefsten Spitzen) auch dort, dann mit dem Median der gefundenen Spitzen. Gemessen über die 5 festen Sweep-Datensätze mit den Standard-Einstellungen: alle Sweeps, Tabellen und Presets sowie alle in dieser Datei genannten Zahlen bleiben unverändert. Als Test hinterlegt (`tests/test_detect_spikes_depth.py`).
 
 ## Verifikation
 

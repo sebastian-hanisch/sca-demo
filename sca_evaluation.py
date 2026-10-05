@@ -99,7 +99,7 @@ DETECT_DEPTH_FRACTION = 0.3        # ... mindestens aber 30 % der typischen Spit
 
 
 def detect_spikes(x):
-    """Negative Spitzen von x (Vorzeichen bereits wie beim Neuron): tiefste zuerst, Mindestabstand; Schwelle max(4 sigma_MAD, 0.3 x typische Tiefe)."""
+    """Negative Spitzen von x (Vorzeichen bereits wie beim Neuron): tiefste zuerst, Mindestabstand; Schwelle max(4 sigma_MAD, 0.3 x typische Tiefe); typische Tiefe = Median der (höchstens) 10 tiefsten Spitzen."""
     sigma = np.median(np.abs(x - np.median(x))) / 0.6745
     threshold = -DETECT_SIGMA_FACTOR * sigma
     taken = np.zeros(len(x), bool)
@@ -111,8 +111,11 @@ def detect_spikes(x):
             continue
         taken[t] = True
         peaks.append(t)
-        if len(peaks) == 10:                                             # typische Tiefe = Median der 10 tiefsten Spitzen
+        if len(peaks) == 10:                                             # typische Tiefe = Median der 10 tiefsten Spitzen (ab hier gilt die Schwelle laufend)
             threshold = min(threshold, DETECT_DEPTH_FRACTION * float(np.median(x[peaks])))
+    if 0 < len(peaks) < 10:                                              # weniger als 10 Spitzen: typische Tiefe = Median der gefundenen
+        threshold = min(threshold, DETECT_DEPTH_FRACTION * float(np.median(x[peaks])))
+        peaks = [t for t in peaks if x[t] <= threshold]
     return np.sort(np.array(peaks, dtype=int))
 
 
