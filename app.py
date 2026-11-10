@@ -93,7 +93,7 @@ with st.expander("So funktioniert SCA", expanded=True):
 **Das Modell** ist dasselbe wie bei ICA und SOBI: $x(t) = A\\,s(t) + \\text{Rauschen}$ mit $n$ Elektroden, $k$ Quellen und unbekannter Mischung $A \\in \\mathbb{R}^{n \\times k}$ - jetzt aber mit **$k > n$ erlaubt**.
 Verlangt wird stattdessen **Dünnbesetztheit in der Zeit**: zu jedem Zeitpunkt sind nur wenige Quellen von null verschieden, meist eine.
 
-1. **Aktive Zeitpunkte.** Nur Zeitpunkte, an denen der Elektrodenvektor deutlich aus dem Rauschen ragt, tragen Information. Die Norm $\\lVert x(t) \\rVert$ entscheidet (robuste Rauschschätzung aus den ruhigen Zeitpunkten).
+1. **Aktive Zeitpunkte.** Nur Zeitpunkte, an denen der Elektrodenvektor deutlich aus dem Rauschen ragt, enthalten Information. Die Norm $\\lVert x(t) \\rVert$ entscheidet (robuste Rauschschätzung aus den ruhigen Zeitpunkten).
 2. **Richtungen.** Ist zum Zeitpunkt $t$ nur Neuron $i$ aktiv, gilt $x(t) = a_i\\,s_i(t)$: der Vektor $x(t)/\\lVert x(t) \\rVert$ zeigt (bis aufs Vorzeichen) in Richtung der Mischspalte $a_i$.
    Die Vorzeichen sind egal, weil die Spitzen positiv und negativ ausschlagen - es zählen **Achsen**, keine Pfeile.
 3. **Clustering.** Die Richtungen fallen in $k$ Cluster. Ein **Achsen-k-Means** (Zuordnung nach $|u \\cdot c|$, Achse = Hauptvektor des Clusters, mehrere Neustarts) findet sie; die Achsen sind die geschätzten Mischspalten $\\hat A$.
